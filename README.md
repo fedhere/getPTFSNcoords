@@ -9,6 +9,7 @@ you will need:
 
 instructions: 
 
+
 1. run [sextractor](http://www.astromatic.net/software/sextractor) on a fits image which includes the SN site and the reference stars marked in the PTF finding chart
 `sex frame-r-003103-6-0122.fits `
 the default.sex included in this repo has good parameters for this purpose which usually pick up the host galaxy nucleus and the comparison stars as isolated sources. it also has a default output file name: PTFSNfinder.cat
