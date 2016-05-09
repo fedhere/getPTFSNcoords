@@ -14,9 +14,11 @@ thhe included default.sex has good parameters for this purpose which usually pic
 
 turn the output will be a catalog file (PTFSNfinder.cat) in a region file
 
-$python sexcat2ds9reg.py  PTFSNfinder.cat
+`python sexcat2ds9reg.py  PTFSNfinder.cat`
 
-this creates a regioin file PTFSNfinder.cat.reg. open the SDSS image with ds9 with the overplotted region file and identify the stars in the PTF finder's chart
+this creates a region file PTFSNfinder.cat.reg  
+
+open the SDSS image with ds9 with the overplotted region file and identify the stars in the PTF finder's chart
 
 $ds9 SDSS_SNfield.fits -regions load PTFSNfinder.cat.reg
 
