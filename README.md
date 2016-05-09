@@ -1,1 +1,57 @@
 # getPTFSNcoords
+you will need: 
+
+1) a PTF finding chart
+2) an SDSS or otherwise high (decent) resolution image of the field in fits format
+
+instructions: 
+
+1) run sextractor on a fits image including the SN site and the reference stars in the PTF finding chart
+
+$sex frame-r-003103-6-0122.fits 
+
+thhe included default.sex has good parameters for this purpose which usually pick up the host galaxy nucleus and the comparison stars as isolated sources. it also has a default output file named PTFSNfinder.cat
+
+turn the output will be a catalog file (PTFSNfinder.cat) in a region file
+
+$python sexcat2ds9reg.py  PTFSNfinder.cat
+
+this creates a regioin file PTFSNfinder.cat.reg. open the SDSS image with ds9 with the overplotted region file and identify the stars in the PTF finder's chart
+
+$ds9 SDSS_SNfield.fits -regions load PTFSNfinder.cat.reg
+
+click on the stars to extract the coordinates of the circle centered on each reference star and on the host galaxy nucleus. with the default.sex file in thie repo these will be outputted in deg and in scientific notation: for example the galaxy coordinates may be something like 1.7599781135e+02 5.5687552292e+01 (RA in deg, Dec in deg)
+
+for each reference star in the PTF finders chart pass the coordinates of the galaxy nucleus and of the star, as reported by sextractor, and of the separation SN-star (E->W positive, N->S positive) as reported but he PTF finder's chart
+you can call the code as
+
+$python sky_separation.py 
+
+and pass it arguments in pairs responding to code prompts: 
+
+$python sky_separation.py
+make sure you inputted coords in degrees and offsets in arcsecs
+
+Galaxy coords from SDSS fits: (ra dec in degrees) 1.7601249246e+02 5.5689677613e+01
+Star coords from SDSS fits: (ra dec in degrees) 1.7600449712e+02 5.5620345751e+01
+SN star separation from PTF find-chart: 
+ SN->star W positive, S positive (ra dec in arcsec) 16.54 254.51
+
+which returns:
+
+Gal-star separation (arcsec) 250.122396052 PA 3.20662rad
+Gal-star RA Dec offset (arcsec) 16.2243800281 249.5947032
+SN-Gal offsets: 0.315619971923 4.9152968
+
+or pass the arguments at once (or even only the first pair - Galaxy coords - or first and second - Galaxy coords and star coords and wait for the following prompts)
+
+ python sky_separation.py 1.7601249246e+02 5.5689677613e+01  1.7600449712e+02 5.5620345751e+01 16.54 254.51
+assuming you passed Gal coords in deg, star coord in deg from FITS, star coord in deg from FITS, SN-star separation from PTF in arcsec
+
+SN star separation  [16.54, 254.51]
+Gal-star separation (arcsec) 250.122396052 PA 3.20662rad
+Gal-star RA Dec offset (arcsec) 16.2243800281 249.5947032
+SN-Gal offsets: 0.315619971923 4.9152968
+
+
+reported is the SN-Gal offset in arcsec
