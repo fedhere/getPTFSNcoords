@@ -10,23 +10,14 @@ you will need:
 instructions: 
 
 1. run [sextractor](http://www.astromatic.net/software/sextractor) on a fits image which includes the SN site and the reference stars marked in the PTF finding chart
-
 `sex frame-r-003103-6-0122.fits `
-
 the default.sex included in this repo has good parameters for this purpose which usually pick up the host galaxy nucleus and the comparison stars as isolated sources. it also has a default output file name: PTFSNfinder.cat
-
-2. turn the output catalog file (PTFSNfinder.cat) into a [ds9](http://ds9.si.edu/site/Home.html) region file
-
+2.turn the output catalog file (PTFSNfinder.cat) into a [ds9](http://ds9.si.edu/site/Home.html) region file
 `python sexcat2ds9reg.py  PTFSNfinder.cat`
-
 this creates a region file PTFSNfinder.cat.reg  
-
 3. open the SDSS image with ds9 loading the region file and identify the stars in the PTF finder's chart
 `$ds9 SDSS_SNfield.fits -regions load PTFSNfinder.cat.reg`
-
 4. click on the galaxy nucleus and reference stars regions to extract the coordinates of the circle centered on each reference star and on the host galaxy nucleus. with the default.sex file in this repo the coordinates will be outputted in deg in scientific notation: for example the galaxy coordinates may be something like 1.7599781135e+02 5.5687552292e+01 (RA in deg, Dec in deg)
-
-
 5. for each reference star in the PTF finders chart pass the coordinates of the galaxy nucleus and of the star, as reported by sextractor, and the separation SN-star (E->W positive, N->S positive in arcsec) as reported buy the PTF finding chart to sky_separation.py
 
 you can call the code as
