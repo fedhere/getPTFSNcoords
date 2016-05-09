@@ -1,14 +1,14 @@
 # getPTFSNcoords
 you will need: 
 
-1) a PTF finding chart
+1) a PTF finding chart reporting the coordinates of reference stars and SN-star offsets
 2) an SDSS or otherwise high (decent) resolution image of the field in fits format
 
 instructions: 
 
 1) run sextractor on a fits image including the SN site and the reference stars in the PTF finding chart
 
-$sex frame-r-003103-6-0122.fits 
+`sex frame-r-003103-6-0122.fits `
 
 thhe included default.sex has good parameters for this purpose which usually pick up the host galaxy nucleus and the comparison stars as isolated sources. it also has a default output file named PTFSNfinder.cat
 
