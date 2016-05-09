@@ -7,14 +7,12 @@ you will need:
 
 3. python, ds9 and sextractor installed
 
-instructions: 
-
-
+instructions:
 1. run [sextractor](http://www.astromatic.net/software/sextractor) on a fits image which includes the SN site and the reference stars marked in the PTF finding chart
 `sex frame-r-003103-6-0122.fits `
 the default.sex included in this repo has good parameters for this purpose which usually pick up the host galaxy nucleus and the comparison stars as isolated sources. it also has a default output file name: PTFSNfinder.cat
 
-2.turn the output catalog file (PTFSNfinder.cat) into a [ds9](http://ds9.si.edu/site/Home.html) region file
+2. turn the output catalog file (PTFSNfinder.cat) into a [ds9](http://ds9.si.edu/site/Home.html) region file
 `python sexcat2ds9reg.py  PTFSNfinder.cat`
 this creates a region file PTFSNfinder.cat.reg  
 3. open the SDSS image with ds9 loading the region file and identify the stars in the PTF finder's chart
