@@ -3,6 +3,7 @@ you will need:
 
 1) a PTF finding chart reporting the coordinates of reference stars and SN-star offsets
 2) an SDSS or otherwise high (decent) resolution image of the field in fits format
+3) python, ds9 and sextractor installed
 
 instructions: 
 
