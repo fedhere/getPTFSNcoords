@@ -7,7 +7,7 @@ you will need:
 
 3. python, ds9 and sextractor installed
 
-instructions:
+Instructions:
 
 1. run [sextractor](http://www.astromatic.net/software/sextractor) on a fits image which includes the SN site and the reference stars marked in the PTF finding chart
 `sex frame-r-003103-6-0122.fits `
